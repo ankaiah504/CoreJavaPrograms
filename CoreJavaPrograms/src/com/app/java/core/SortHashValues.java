@@ -28,7 +28,19 @@ public class SortHashValues {
 				.stream() 
 				.sorted(Collections.reverseOrder(Map.Entry.comparingByValue())) 
 				.collect( toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
-		System.out.println("map after sorting by values in descending order: " + m1); }
+		System.out.println("map after sorting by values in descending order: " + m1); 
+		
+	//get Key in hashMap
+		Map<Object, Object> key=map
+				.entrySet()
+				.stream()
+				.sorted(comparingByKey())
+				.collect(toMap(e->e.getKey(),e->e.getValue(),(e1,e2)->e2));
+
+				System.out.println("Result after Only Key"+key);
+				
+		
+	}
 
 	}
 
